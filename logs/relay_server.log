@@ -1,0 +1,249 @@
+[WARNING] 2025-08-07 19:57:17,723 django.request:log_response():246 - Not Found: /
+[WARNING] 2025-08-07 19:57:17,781 django.request:log_response():246 - Not Found: /favicon.ico
+[WARNING] 2025-08-07 20:02:06,697 django.request:log_response():246 - Not Found: /favicon.ico
+[INFO] 2025-08-07 20:02:24,968 relay_server.auth_middleware:__call__():45 - TokenAuthMiddleware: Received token: XSjsH2DdaPRMAKLY1OLNbRjyPAWSLf
+[INFO] 2025-08-07 20:02:24,972 relay_server.auth_middleware:get_user():59 - TokenAuthMiddleware: Access token found for user vaidz
+[INFO] 2025-08-07 20:02:24,974 relay_server.auth_middleware:__call__():47 - TokenAuthMiddleware: User authenticated: True (user=vaidz)
+[INFO] 2025-08-07 20:02:24,978 relay_server.consumers:connect():60 - Authenticated WebSocket connection from user 'vaidz'
+[INFO] 2025-08-07 20:02:24,978 relay_server.consumers:connect():88 - Started cleanup_commands background task.
+[INFO] 2025-08-07 20:02:24,979 relay_server.consumers:connect():91 - RPA Node ABC123 connected and authenticated.
+[INFO] 2025-08-07 20:02:24,982 relay_server.consumers:receive():116 - Received message type 'node_response' from ABC123 (Req ID: 12f9dc51-f18b-46ce-baab-239282d1c696)
+[INFO] 2025-08-07 20:02:24,982 relay_server.consumers:receive():123 - Updated command status for 12f9dc51-f18b-46ce-baab-239282d1c696.
+[INFO] 2025-08-07 20:03:43,342 relay_server.auth_middleware:__call__():24 - TokenAuthMiddleware: Bypassing auth for remote control path /ws/remote-control/ABC123/
+[INFO] 2025-08-07 20:03:43,348 remote_control_app.consumers:connect():29 - [RemoteControl] Controller for node ABC123 connected.
+[INFO] 2025-08-07 20:03:43,351 relay_server.consumers:send_command_to_node():106 - Command sent to node ABC123 Req ID: req_1754577223351
+[INFO] 2025-08-07 20:03:43,351 remote_control_app.consumers:receive():55 - Forwarded command 'screenshot' to node ABC123
+[INFO] 2025-08-07 20:03:44,515 relay_server.consumers:send_command_to_node():106 - Command sent to node ABC123 Req ID: req_1754577224510
+[INFO] 2025-08-07 20:03:44,515 remote_control_app.consumers:receive():55 - Forwarded command 'mouse_move' to node ABC123
+[INFO] 2025-08-07 20:03:45,260 relay_server.consumers:send_command_to_node():106 - Command sent to node ABC123 Req ID: req_1754577225260
+[INFO] 2025-08-07 20:03:45,260 remote_control_app.consumers:receive():55 - Forwarded command 'mouse_move' to node ABC123
+[INFO] 2025-08-07 20:03:45,419 relay_server.consumers:send_command_to_node():106 - Command sent to node ABC123 Req ID: req_1754577225419
+[INFO] 2025-08-07 20:03:45,419 remote_control_app.consumers:receive():55 - Forwarded command 'mouse_scroll' to node ABC123
+[INFO] 2025-08-07 20:03:45,491 relay_server.consumers:send_command_to_node():106 - Command sent to node ABC123 Req ID: req_1754577225491
+[INFO] 2025-08-07 20:03:45,492 remote_control_app.consumers:receive():55 - Forwarded command 'mouse_scroll' to node ABC123
+[INFO] 2025-08-07 20:03:45,750 relay_server.consumers:send_command_to_node():106 - Command sent to node ABC123 Req ID: req_1754577225750
+[INFO] 2025-08-07 20:03:45,751 remote_control_app.consumers:receive():55 - Forwarded command 'mouse_move' to node ABC123
+[INFO] 2025-08-07 20:03:45,765 relay_server.consumers:send_command_to_node():106 - Command sent to node ABC123 Req ID: req_1754577225765
+[INFO] 2025-08-07 20:03:45,766 remote_control_app.consumers:receive():55 - Forwarded command 'mouse_move' to node ABC123
+[INFO] 2025-08-07 20:03:45,771 relay_server.consumers:send_command_to_node():106 - Command sent to node ABC123 Req ID: req_1754577225771
+[INFO] 2025-08-07 20:03:45,772 remote_control_app.consumers:receive():55 - Forwarded command 'mouse_move' to node ABC123
+[INFO] 2025-08-07 20:03:45,779 relay_server.consumers:send_command_to_node():106 - Command sent to node ABC123 Req ID: req_1754577225778
+[INFO] 2025-08-07 20:03:45,779 remote_control_app.consumers:receive():55 - Forwarded command 'mouse_move' to node ABC123
+[INFO] 2025-08-07 20:03:45,786 relay_server.consumers:send_command_to_node():106 - Command sent to node ABC123 Req ID: req_1754577225786
+[INFO] 2025-08-07 20:03:45,787 remote_control_app.consumers:receive():55 - Forwarded command 'mouse_move' to node ABC123
+[INFO] 2025-08-07 20:03:45,794 relay_server.consumers:send_command_to_node():106 - Command sent to node ABC123 Req ID: req_1754577225794
+[INFO] 2025-08-07 20:03:45,795 remote_control_app.consumers:receive():55 - Forwarded command 'mouse_move' to node ABC123
+[INFO] 2025-08-07 20:03:45,803 relay_server.consumers:send_command_to_node():106 - Command sent to node ABC123 Req ID: req_1754577225803
+[INFO] 2025-08-07 20:03:45,803 remote_control_app.consumers:receive():55 - Forwarded command 'mouse_move' to node ABC123
+[INFO] 2025-08-07 20:03:45,810 relay_server.consumers:send_command_to_node():106 - Command sent to node ABC123 Req ID: req_1754577225810
+[INFO] 2025-08-07 20:03:45,811 remote_control_app.consumers:receive():55 - Forwarded command 'mouse_move' to node ABC123
+[INFO] 2025-08-07 20:03:45,818 relay_server.consumers:send_command_to_node():106 - Command sent to node ABC123 Req ID: req_1754577225818
+[INFO] 2025-08-07 20:03:45,818 remote_control_app.consumers:receive():55 - Forwarded command 'mouse_move' to node ABC123
+[INFO] 2025-08-07 20:03:45,859 relay_server.consumers:send_command_to_node():106 - Command sent to node ABC123 Req ID: req_1754577225858
+[INFO] 2025-08-07 20:03:45,859 remote_control_app.consumers:receive():55 - Forwarded command 'mouse_move' to node ABC123
+[INFO] 2025-08-07 20:03:45,915 relay_server.consumers:send_command_to_node():106 - Command sent to node ABC123 Req ID: req_1754577225915
+[INFO] 2025-08-07 20:03:45,916 remote_control_app.consumers:receive():55 - Forwarded command 'mouse_scroll' to node ABC123
+[INFO] 2025-08-07 20:03:45,938 relay_server.consumers:send_command_to_node():106 - Command sent to node ABC123 Req ID: req_1754577225938
+[INFO] 2025-08-07 20:03:45,938 remote_control_app.consumers:receive():55 - Forwarded command 'mouse_scroll' to node ABC123
+[INFO] 2025-08-07 20:03:46,231 relay_server.consumers:send_command_to_node():106 - Command sent to node ABC123 Req ID: req_1754577226231
+[INFO] 2025-08-07 20:03:46,232 remote_control_app.consumers:receive():55 - Forwarded command 'mouse_move' to node ABC123
+[INFO] 2025-08-07 20:03:46,237 relay_server.consumers:send_command_to_node():106 - Command sent to node ABC123 Req ID: req_1754577226236
+[INFO] 2025-08-07 20:03:46,237 remote_control_app.consumers:receive():55 - Forwarded command 'mouse_move' to node ABC123
+[INFO] 2025-08-07 20:03:46,243 relay_server.consumers:send_command_to_node():106 - Command sent to node ABC123 Req ID: req_1754577226242
+[INFO] 2025-08-07 20:03:46,244 remote_control_app.consumers:receive():55 - Forwarded command 'mouse_move' to node ABC123
+[INFO] 2025-08-07 20:03:46,250 relay_server.consumers:send_command_to_node():106 - Command sent to node ABC123 Req ID: req_1754577226250
+[INFO] 2025-08-07 20:03:46,251 remote_control_app.consumers:receive():55 - Forwarded command 'mouse_move' to node ABC123
+[INFO] 2025-08-07 20:03:46,258 relay_server.consumers:send_command_to_node():106 - Command sent to node ABC123 Req ID: req_1754577226259
+[INFO] 2025-08-07 20:03:46,259 remote_control_app.consumers:receive():55 - Forwarded command 'mouse_move' to node ABC123
+[INFO] 2025-08-07 20:03:46,266 relay_server.consumers:send_command_to_node():106 - Command sent to node ABC123 Req ID: req_1754577226266
+[INFO] 2025-08-07 20:03:46,266 remote_control_app.consumers:receive():55 - Forwarded command 'mouse_move' to node ABC123
+[INFO] 2025-08-07 20:03:46,274 relay_server.consumers:send_command_to_node():106 - Command sent to node ABC123 Req ID: req_1754577226274
+[INFO] 2025-08-07 20:03:46,274 remote_control_app.consumers:receive():55 - Forwarded command 'mouse_move' to node ABC123
+[INFO] 2025-08-07 20:03:46,282 relay_server.consumers:send_command_to_node():106 - Command sent to node ABC123 Req ID: req_1754577226282
+[INFO] 2025-08-07 20:03:46,283 remote_control_app.consumers:receive():55 - Forwarded command 'mouse_move' to node ABC123
+[INFO] 2025-08-07 20:03:46,575 relay_server.consumers:send_command_to_node():106 - Command sent to node ABC123 Req ID: req_1754577226570
+[INFO] 2025-08-07 20:03:46,575 remote_control_app.consumers:receive():55 - Forwarded command 'mouse_move' to node ABC123
+[INFO] 2025-08-07 20:03:46,578 relay_server.consumers:send_command_to_node():106 - Command sent to node ABC123 Req ID: req_1754577226578
+[INFO] 2025-08-07 20:03:46,578 remote_control_app.consumers:receive():55 - Forwarded command 'mouse_move' to node ABC123
+[INFO] 2025-08-07 20:03:46,586 relay_server.consumers:send_command_to_node():106 - Command sent to node ABC123 Req ID: req_1754577226586
+[INFO] 2025-08-07 20:03:46,586 remote_control_app.consumers:receive():55 - Forwarded command 'mouse_move' to node ABC123
+[INFO] 2025-08-07 20:03:46,594 relay_server.consumers:send_command_to_node():106 - Command sent to node ABC123 Req ID: req_1754577226594
+[INFO] 2025-08-07 20:03:46,594 remote_control_app.consumers:receive():55 - Forwarded command 'mouse_move' to node ABC123
+[INFO] 2025-08-07 20:03:46,602 relay_server.consumers:send_command_to_node():106 - Command sent to node ABC123 Req ID: req_1754577226602
+[INFO] 2025-08-07 20:03:46,602 remote_control_app.consumers:receive():55 - Forwarded command 'mouse_move' to node ABC123
+[INFO] 2025-08-07 20:03:46,610 relay_server.consumers:send_command_to_node():106 - Command sent to node ABC123 Req ID: req_1754577226610
+[INFO] 2025-08-07 20:03:46,610 remote_control_app.consumers:receive():55 - Forwarded command 'mouse_move' to node ABC123
+[INFO] 2025-08-07 20:03:46,618 relay_server.consumers:send_command_to_node():106 - Command sent to node ABC123 Req ID: req_1754577226618
+[INFO] 2025-08-07 20:03:46,619 remote_control_app.consumers:receive():55 - Forwarded command 'mouse_move' to node ABC123
+[INFO] 2025-08-07 20:03:46,626 relay_server.consumers:send_command_to_node():106 - Command sent to node ABC123 Req ID: req_1754577226626
+[INFO] 2025-08-07 20:03:46,627 remote_control_app.consumers:receive():55 - Forwarded command 'mouse_move' to node ABC123
+[INFO] 2025-08-07 20:03:46,634 relay_server.consumers:send_command_to_node():106 - Command sent to node ABC123 Req ID: req_1754577226634
+[INFO] 2025-08-07 20:03:46,634 remote_control_app.consumers:receive():55 - Forwarded command 'mouse_move' to node ABC123
+[INFO] 2025-08-07 20:03:46,642 relay_server.consumers:send_command_to_node():106 - Command sent to node ABC123 Req ID: req_1754577226642
+[INFO] 2025-08-07 20:03:46,642 remote_control_app.consumers:receive():55 - Forwarded command 'mouse_move' to node ABC123
+[INFO] 2025-08-07 20:03:46,650 relay_server.consumers:send_command_to_node():106 - Command sent to node ABC123 Req ID: req_1754577226650
+[INFO] 2025-08-07 20:03:46,650 remote_control_app.consumers:receive():55 - Forwarded command 'mouse_move' to node ABC123
+[INFO] 2025-08-07 20:03:46,659 relay_server.consumers:send_command_to_node():106 - Command sent to node ABC123 Req ID: req_1754577226658
+[INFO] 2025-08-07 20:03:46,659 remote_control_app.consumers:receive():55 - Forwarded command 'mouse_move' to node ABC123
+[INFO] 2025-08-07 20:03:46,666 relay_server.consumers:send_command_to_node():106 - Command sent to node ABC123 Req ID: req_1754577226666
+[INFO] 2025-08-07 20:03:46,667 remote_control_app.consumers:receive():55 - Forwarded command 'mouse_move' to node ABC123
+[INFO] 2025-08-07 20:03:46,674 relay_server.consumers:send_command_to_node():106 - Command sent to node ABC123 Req ID: req_1754577226674
+[INFO] 2025-08-07 20:03:46,675 remote_control_app.consumers:receive():55 - Forwarded command 'mouse_move' to node ABC123
+[INFO] 2025-08-07 20:03:46,683 relay_server.consumers:send_command_to_node():106 - Command sent to node ABC123 Req ID: req_1754577226682
+[INFO] 2025-08-07 20:03:46,683 remote_control_app.consumers:receive():55 - Forwarded command 'mouse_move' to node ABC123
+[INFO] 2025-08-07 20:03:46,690 relay_server.consumers:send_command_to_node():106 - Command sent to node ABC123 Req ID: req_1754577226691
+[INFO] 2025-08-07 20:03:46,691 remote_control_app.consumers:receive():55 - Forwarded command 'mouse_move' to node ABC123
+[INFO] 2025-08-07 20:03:46,698 relay_server.consumers:send_command_to_node():106 - Command sent to node ABC123 Req ID: req_1754577226698
+[INFO] 2025-08-07 20:03:46,699 remote_control_app.consumers:receive():55 - Forwarded command 'mouse_move' to node ABC123
+[INFO] 2025-08-07 20:03:46,706 relay_server.consumers:send_command_to_node():106 - Command sent to node ABC123 Req ID: req_1754577226706
+[INFO] 2025-08-07 20:03:46,707 remote_control_app.consumers:receive():55 - Forwarded command 'mouse_move' to node ABC123
+[INFO] 2025-08-07 20:03:46,714 relay_server.consumers:send_command_to_node():106 - Command sent to node ABC123 Req ID: req_1754577226714
+[INFO] 2025-08-07 20:03:46,714 remote_control_app.consumers:receive():55 - Forwarded command 'mouse_move' to node ABC123
+[INFO] 2025-08-07 20:03:46,722 relay_server.consumers:send_command_to_node():106 - Command sent to node ABC123 Req ID: req_1754577226722
+[INFO] 2025-08-07 20:03:46,723 remote_control_app.consumers:receive():55 - Forwarded command 'mouse_move' to node ABC123
+[INFO] 2025-08-07 20:03:46,730 relay_server.consumers:send_command_to_node():106 - Command sent to node ABC123 Req ID: req_1754577226730
+[INFO] 2025-08-07 20:03:46,731 remote_control_app.consumers:receive():55 - Forwarded command 'mouse_move' to node ABC123
+[INFO] 2025-08-07 20:03:46,739 relay_server.consumers:send_command_to_node():106 - Command sent to node ABC123 Req ID: req_1754577226739
+[INFO] 2025-08-07 20:03:46,739 remote_control_app.consumers:receive():55 - Forwarded command 'mouse_move' to node ABC123
+[INFO] 2025-08-07 20:03:46,746 relay_server.consumers:send_command_to_node():106 - Command sent to node ABC123 Req ID: req_1754577226746
+[INFO] 2025-08-07 20:03:46,746 remote_control_app.consumers:receive():55 - Forwarded command 'mouse_move' to node ABC123
+[INFO] 2025-08-07 20:03:46,754 relay_server.consumers:send_command_to_node():106 - Command sent to node ABC123 Req ID: req_1754577226754
+[INFO] 2025-08-07 20:03:46,755 remote_control_app.consumers:receive():55 - Forwarded command 'mouse_move' to node ABC123
+[INFO] 2025-08-07 20:03:46,762 relay_server.consumers:send_command_to_node():106 - Command sent to node ABC123 Req ID: req_1754577226762
+[INFO] 2025-08-07 20:03:46,763 remote_control_app.consumers:receive():55 - Forwarded command 'mouse_move' to node ABC123
+[INFO] 2025-08-07 20:03:46,770 relay_server.consumers:send_command_to_node():106 - Command sent to node ABC123 Req ID: req_1754577226770
+[INFO] 2025-08-07 20:03:46,770 remote_control_app.consumers:receive():55 - Forwarded command 'mouse_move' to node ABC123
+[INFO] 2025-08-07 20:03:46,778 relay_server.consumers:send_command_to_node():106 - Command sent to node ABC123 Req ID: req_1754577226778
+[INFO] 2025-08-07 20:03:46,779 remote_control_app.consumers:receive():55 - Forwarded command 'mouse_move' to node ABC123
+[INFO] 2025-08-07 20:03:46,786 relay_server.consumers:send_command_to_node():106 - Command sent to node ABC123 Req ID: req_1754577226787
+[INFO] 2025-08-07 20:03:46,786 remote_control_app.consumers:receive():55 - Forwarded command 'mouse_move' to node ABC123
+[INFO] 2025-08-07 20:03:46,794 relay_server.consumers:send_command_to_node():106 - Command sent to node ABC123 Req ID: req_1754577226794
+[INFO] 2025-08-07 20:03:46,794 remote_control_app.consumers:receive():55 - Forwarded command 'mouse_move' to node ABC123
+[INFO] 2025-08-07 20:03:46,802 relay_server.consumers:send_command_to_node():106 - Command sent to node ABC123 Req ID: req_1754577226802
+[INFO] 2025-08-07 20:03:46,803 remote_control_app.consumers:receive():55 - Forwarded command 'mouse_move' to node ABC123
+[INFO] 2025-08-07 20:03:46,810 relay_server.consumers:send_command_to_node():106 - Command sent to node ABC123 Req ID: req_1754577226810
+[INFO] 2025-08-07 20:03:46,811 remote_control_app.consumers:receive():55 - Forwarded command 'mouse_move' to node ABC123
+[INFO] 2025-08-07 20:03:46,818 relay_server.consumers:send_command_to_node():106 - Command sent to node ABC123 Req ID: req_1754577226818
+[INFO] 2025-08-07 20:03:46,819 remote_control_app.consumers:receive():55 - Forwarded command 'mouse_move' to node ABC123
+[INFO] 2025-08-07 20:03:46,826 relay_server.consumers:send_command_to_node():106 - Command sent to node ABC123 Req ID: req_1754577226826
+[INFO] 2025-08-07 20:03:46,827 remote_control_app.consumers:receive():55 - Forwarded command 'mouse_move' to node ABC123
+[INFO] 2025-08-07 20:03:46,834 relay_server.consumers:send_command_to_node():106 - Command sent to node ABC123 Req ID: req_1754577226834
+[INFO] 2025-08-07 20:03:46,835 remote_control_app.consumers:receive():55 - Forwarded command 'mouse_move' to node ABC123
+[INFO] 2025-08-07 20:04:13,461 relay_server.consumers:disconnect():96 - WebSocket disconnected for node ABC123 with code 1006.
+[WARNING] 2025-08-07 20:04:15,470 remote_control_app.consumers:receive():57 - Node ABC123 not available to receive command 'mouse_move'
+[WARNING] 2025-08-07 20:04:15,851 remote_control_app.consumers:receive():57 - Node ABC123 not available to receive command 'mouse_move'
+[WARNING] 2025-08-07 20:04:15,859 remote_control_app.consumers:receive():57 - Node ABC123 not available to receive command 'mouse_move'
+[WARNING] 2025-08-07 20:04:15,872 remote_control_app.consumers:receive():57 - Node ABC123 not available to receive command 'mouse_move'
+[WARNING] 2025-08-07 20:04:15,877 remote_control_app.consumers:receive():57 - Node ABC123 not available to receive command 'mouse_move'
+[WARNING] 2025-08-07 20:04:15,883 remote_control_app.consumers:receive():57 - Node ABC123 not available to receive command 'mouse_move'
+[WARNING] 2025-08-07 20:04:15,896 remote_control_app.consumers:receive():57 - Node ABC123 not available to receive command 'mouse_move'
+[WARNING] 2025-08-07 20:04:15,902 remote_control_app.consumers:receive():57 - Node ABC123 not available to receive command 'mouse_move'
+[WARNING] 2025-08-07 20:04:15,908 remote_control_app.consumers:receive():57 - Node ABC123 not available to receive command 'mouse_move'
+[WARNING] 2025-08-07 20:04:15,920 remote_control_app.consumers:receive():57 - Node ABC123 not available to receive command 'mouse_move'
+[WARNING] 2025-08-07 20:04:15,926 remote_control_app.consumers:receive():57 - Node ABC123 not available to receive command 'mouse_move'
+[WARNING] 2025-08-07 20:04:15,932 remote_control_app.consumers:receive():57 - Node ABC123 not available to receive command 'mouse_move'
+[WARNING] 2025-08-07 20:04:15,944 remote_control_app.consumers:receive():57 - Node ABC123 not available to receive command 'mouse_move'
+[WARNING] 2025-08-07 20:04:15,950 remote_control_app.consumers:receive():57 - Node ABC123 not available to receive command 'mouse_move'
+[INFO] 2025-08-07 20:04:21,787 remote_control_app.consumers:disconnect():36 - [RemoteControl] Controller for node ABC123 disconnected.
+[INFO] 2025-08-07 20:08:38,800 relay_server.auth_middleware:__call__():45 - TokenAuthMiddleware: Received token: KWzoPHtgIBrtf10EKN7sxqy2jyErbE
+[INFO] 2025-08-07 20:08:38,805 relay_server.auth_middleware:get_user():59 - TokenAuthMiddleware: Access token found for user vaidz
+[INFO] 2025-08-07 20:08:38,806 relay_server.auth_middleware:__call__():47 - TokenAuthMiddleware: User authenticated: True (user=vaidz)
+[INFO] 2025-08-07 20:08:38,809 relay_server.consumers:connect():60 - Authenticated WebSocket connection from user 'vaidz'
+[INFO] 2025-08-07 20:08:38,809 relay_server.consumers:connect():88 - Started cleanup_commands background task.
+[INFO] 2025-08-07 20:08:38,810 relay_server.consumers:connect():91 - RPA Node ABC123 connected and authenticated.
+[INFO] 2025-08-07 20:08:38,814 relay_server.consumers:receive():116 - Received message type 'node_response' from ABC123 (Req ID: c4a19ec8-1580-49d1-8269-b7cb0f7984ba)
+[INFO] 2025-08-07 20:08:38,814 relay_server.consumers:receive():123 - Updated command status for c4a19ec8-1580-49d1-8269-b7cb0f7984ba.
+[WARNING] 2025-08-07 20:09:09,604 django.request:log_response():246 - Not Found: /remote-control//
+[WARNING] 2025-08-07 20:09:15,442 django.request:log_response():246 - Not Found: /favicon.ico
+[INFO] 2025-08-07 20:09:27,607 relay_server.auth_middleware:__call__():24 - TokenAuthMiddleware: Bypassing auth for remote control path /ws/remote-control/ABC123/
+[INFO] 2025-08-07 20:09:27,612 remote_control_app.consumers:connect():29 - [RemoteControl] Controller for node ABC123 connected.
+[INFO] 2025-08-07 20:09:27,615 relay_server.consumers:send_command_to_node():106 - Command sent to node ABC123 Req ID: req_1754577567615
+[INFO] 2025-08-07 20:09:27,615 remote_control_app.consumers:receive():55 - Forwarded command 'screenshot' to node ABC123
+[INFO] 2025-08-07 20:09:27,701 relay_server.consumers:receive():116 - Received message type 'image_frame' from ABC123 (Req ID: None)
+[INFO] 2025-08-07 20:09:27,707 relay_server.consumers:receive():169 - Forwarded image_frame from node ABC123 to controller.
+[INFO] 2025-08-07 20:09:27,707 relay_server.consumers:receive():116 - Received message type 'node_response' from ABC123 (Req ID: req_1754577567615)
+[INFO] 2025-08-07 20:09:27,707 relay_server.consumers:receive():123 - Updated command status for req_1754577567615.
+[INFO] 2025-08-07 20:09:28,808 relay_server.consumers:send_command_to_node():106 - Command sent to node ABC123 Req ID: req_1754577568808
+[INFO] 2025-08-07 20:09:28,809 remote_control_app.consumers:receive():55 - Forwarded command 'mouse_move' to node ABC123
+[INFO] 2025-08-07 20:09:28,826 relay_server.consumers:send_command_to_node():106 - Command sent to node ABC123 Req ID: req_1754577568825
+[INFO] 2025-08-07 20:09:28,826 remote_control_app.consumers:receive():55 - Forwarded command 'mouse_move' to node ABC123
+[INFO] 2025-08-07 20:09:28,869 relay_server.consumers:receive():116 - Received message type 'node_response' from ABC123 (Req ID: req_1754577568808)
+[INFO] 2025-08-07 20:09:28,869 relay_server.consumers:receive():123 - Updated command status for req_1754577568808.
+[INFO] 2025-08-07 20:09:28,920 relay_server.consumers:receive():116 - Received message type 'node_response' from ABC123 (Req ID: req_1754577568825)
+[INFO] 2025-08-07 20:09:28,921 relay_server.consumers:receive():123 - Updated command status for req_1754577568825.
+[INFO] 2025-08-07 20:09:30,247 relay_server.consumers:send_command_to_node():106 - Command sent to node ABC123 Req ID: req_1754577570242
+[INFO] 2025-08-07 20:09:30,247 remote_control_app.consumers:receive():55 - Forwarded command 'mouse_move' to node ABC123
+[INFO] 2025-08-07 20:09:30,302 relay_server.consumers:receive():116 - Received message type 'node_response' from ABC123 (Req ID: req_1754577570242)
+[INFO] 2025-08-07 20:09:30,303 relay_server.consumers:receive():123 - Updated command status for req_1754577570242.
+[INFO] 2025-08-07 20:09:32,671 relay_server.consumers:send_command_to_node():106 - Command sent to node ABC123 Req ID: req_1754577572671
+[INFO] 2025-08-07 20:09:32,671 remote_control_app.consumers:receive():55 - Forwarded command 'mouse_move' to node ABC123
+[INFO] 2025-08-07 20:09:32,711 relay_server.consumers:send_command_to_node():106 - Command sent to node ABC123 Req ID: req_1754577572706
+[INFO] 2025-08-07 20:09:32,711 remote_control_app.consumers:receive():55 - Forwarded command 'mouse_move' to node ABC123
+[INFO] 2025-08-07 20:09:32,714 relay_server.consumers:send_command_to_node():106 - Command sent to node ABC123 Req ID: req_1754577572714
+[INFO] 2025-08-07 20:09:32,714 remote_control_app.consumers:receive():55 - Forwarded command 'mouse_move' to node ABC123
+[INFO] 2025-08-07 20:09:32,722 relay_server.consumers:send_command_to_node():106 - Command sent to node ABC123 Req ID: req_1754577572722
+[INFO] 2025-08-07 20:09:32,722 remote_control_app.consumers:receive():55 - Forwarded command 'mouse_move' to node ABC123
+[INFO] 2025-08-07 20:09:32,723 relay_server.consumers:receive():116 - Received message type 'node_response' from ABC123 (Req ID: req_1754577572671)
+[INFO] 2025-08-07 20:09:32,723 relay_server.consumers:receive():123 - Updated command status for req_1754577572671.
+[INFO] 2025-08-07 20:09:32,774 relay_server.consumers:receive():116 - Received message type 'node_response' from ABC123 (Req ID: req_1754577572706)
+[INFO] 2025-08-07 20:09:32,775 relay_server.consumers:receive():123 - Updated command status for req_1754577572706.
+[INFO] 2025-08-07 20:09:32,827 relay_server.consumers:receive():116 - Received message type 'node_response' from ABC123 (Req ID: req_1754577572714)
+[INFO] 2025-08-07 20:09:32,827 relay_server.consumers:receive():123 - Updated command status for req_1754577572714.
+[INFO] 2025-08-07 20:09:32,879 relay_server.consumers:receive():116 - Received message type 'node_response' from ABC123 (Req ID: req_1754577572722)
+[INFO] 2025-08-07 20:09:32,879 relay_server.consumers:receive():123 - Updated command status for req_1754577572722.
+[INFO] 2025-08-07 20:09:33,071 relay_server.consumers:send_command_to_node():106 - Command sent to node ABC123 Req ID: req_1754577573067
+[INFO] 2025-08-07 20:09:33,071 remote_control_app.consumers:receive():55 - Forwarded command 'mouse_move' to node ABC123
+[INFO] 2025-08-07 20:09:33,111 relay_server.consumers:send_command_to_node():106 - Command sent to node ABC123 Req ID: req_1754577573106
+[INFO] 2025-08-07 20:09:33,112 remote_control_app.consumers:receive():55 - Forwarded command 'mouse_move' to node ABC123
+[INFO] 2025-08-07 20:09:33,114 relay_server.consumers:send_command_to_node():106 - Command sent to node ABC123 Req ID: req_1754577573114
+[INFO] 2025-08-07 20:09:33,114 remote_control_app.consumers:receive():55 - Forwarded command 'mouse_move' to node ABC123
+[INFO] 2025-08-07 20:09:33,122 relay_server.consumers:send_command_to_node():106 - Command sent to node ABC123 Req ID: req_1754577573122
+[INFO] 2025-08-07 20:09:33,123 remote_control_app.consumers:receive():55 - Forwarded command 'mouse_move' to node ABC123
+[INFO] 2025-08-07 20:09:33,123 relay_server.consumers:receive():116 - Received message type 'node_response' from ABC123 (Req ID: req_1754577573067)
+[INFO] 2025-08-07 20:09:33,123 relay_server.consumers:receive():123 - Updated command status for req_1754577573067.
+[INFO] 2025-08-07 20:09:33,175 relay_server.consumers:receive():116 - Received message type 'node_response' from ABC123 (Req ID: req_1754577573106)
+[INFO] 2025-08-07 20:09:33,175 relay_server.consumers:receive():123 - Updated command status for req_1754577573106.
+[INFO] 2025-08-07 20:09:33,227 relay_server.consumers:receive():116 - Received message type 'node_response' from ABC123 (Req ID: req_1754577573114)
+[INFO] 2025-08-07 20:09:33,227 relay_server.consumers:receive():123 - Updated command status for req_1754577573114.
+[INFO] 2025-08-07 20:09:33,278 relay_server.consumers:receive():116 - Received message type 'node_response' from ABC123 (Req ID: req_1754577573122)
+[INFO] 2025-08-07 20:09:33,279 relay_server.consumers:receive():123 - Updated command status for req_1754577573122.
+[INFO] 2025-08-07 20:09:33,343 relay_server.consumers:send_command_to_node():106 - Command sent to node ABC123 Req ID: req_1754577573338
+[INFO] 2025-08-07 20:09:33,343 remote_control_app.consumers:receive():55 - Forwarded command 'mouse_move' to node ABC123
+[INFO] 2025-08-07 20:09:33,346 relay_server.consumers:send_command_to_node():106 - Command sent to node ABC123 Req ID: req_1754577573346
+[INFO] 2025-08-07 20:09:33,346 remote_control_app.consumers:receive():55 - Forwarded command 'mouse_move' to node ABC123
+[INFO] 2025-08-07 20:09:33,396 relay_server.consumers:receive():116 - Received message type 'node_response' from ABC123 (Req ID: req_1754577573338)
+[INFO] 2025-08-07 20:09:33,396 relay_server.consumers:receive():123 - Updated command status for req_1754577573338.
+[INFO] 2025-08-07 20:09:33,448 relay_server.consumers:receive():116 - Received message type 'node_response' from ABC123 (Req ID: req_1754577573346)
+[INFO] 2025-08-07 20:09:33,448 relay_server.consumers:receive():123 - Updated command status for req_1754577573346.
+[INFO] 2025-08-07 20:11:49,394 relay_server.consumers:disconnect():96 - WebSocket disconnected for node ABC123 with code 1012.
+[INFO] 2025-08-07 20:11:49,395 remote_control_app.consumers:disconnect():36 - [RemoteControl] Controller for node ABC123 disconnected.
+[INFO] 2025-08-07 20:12:46,918 relay_server.auth_middleware:__call__():45 - TokenAuthMiddleware: Received token: 4bZxSUFFWo1L6wSJyF51GvYjGOATPK
+[INFO] 2025-08-07 20:12:46,923 relay_server.auth_middleware:get_user():59 - TokenAuthMiddleware: Access token found for user vaidz
+[INFO] 2025-08-07 20:12:46,923 relay_server.auth_middleware:__call__():47 - TokenAuthMiddleware: User authenticated: True (user=vaidz)
+[INFO] 2025-08-07 20:12:46,926 relay_server.consumers:connect():70 - RPA Node ABC123 connected and authenticated.
+[INFO] 2025-08-07 20:12:46,930 relay_server.consumers:receive():89 - Received message type 'node_response' from ABC123 (Req ID: ed98c7f8-b609-40a5-923f-d610a7a462cb)
+[INFO] 2025-08-07 20:12:46,930 relay_server.consumers:receive():96 - Updated command status for ed98c7f8-b609-40a5-923f-d610a7a462cb.
+[INFO] 2025-08-07 20:13:24,710 relay_server.auth_middleware:__call__():24 - TokenAuthMiddleware: Bypassing auth for remote control path /ws/remote-control/ABC123/
+[INFO] 2025-08-07 20:13:24,714 remote_control_app.consumers:connect():24 - [RemoteControl] Controller for node ABC123 connected.
+[INFO] 2025-08-07 20:13:24,718 relay_server.consumers:send_command_to_node():81 - Command sent to node ABC123 Req ID: req_1754577804717
+[INFO] 2025-08-07 20:13:24,718 remote_control_app.consumers:receive():40 - Forwarded command 'screenshot' to node ABC123
+[INFO] 2025-08-07 20:13:24,783 relay_server.consumers:receive():89 - Received message type 'image_frame' from ABC123 (Req ID: None)
+[INFO] 2025-08-07 20:13:24,788 relay_server.consumers:receive():107 - Forwarded image_frame from node ABC123 to controller.
+[INFO] 2025-08-07 20:13:24,789 relay_server.consumers:receive():89 - Received message type 'node_response' from ABC123 (Req ID: req_1754577804717)
+[ERROR] 2025-08-07 20:13:24,789 relay_server.consumers:receive():115 - Error in receive() from ABC123: list assignment index out of range
+Traceback (most recent call last):
+  File "C:\Users\vaidh\OneDrive\Documents\Repo Dump\relay_priv\relay_server\consumers.py", line 95, in receive
+    req_resp.setdefault((self.node_id, req_id), [{}, {}])[1] = response
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+IndexError: list assignment index out of range
+[INFO] 2025-08-07 20:13:31,975 relay_server.consumers:send_command_to_node():81 - Command sent to node ABC123 Req ID: req_1754577811970
+[INFO] 2025-08-07 20:13:31,975 remote_control_app.consumers:receive():40 - Forwarded command 'mouse_move' to node ABC123
+[INFO] 2025-08-07 20:13:32,027 relay_server.consumers:receive():89 - Received message type 'node_response' from ABC123 (Req ID: req_1754577811970)
+[ERROR] 2025-08-07 20:13:32,027 relay_server.consumers:receive():115 - Error in receive() from ABC123: list assignment index out of range
+Traceback (most recent call last):
+  File "C:\Users\vaidh\OneDrive\Documents\Repo Dump\relay_priv\relay_server\consumers.py", line 95, in receive
+    req_resp.setdefault((self.node_id, req_id), [{}, {}])[1] = response
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+IndexError: list assignment index out of range
+[INFO] 2025-08-07 20:13:34,702 remote_control_app.consumers:disconnect():29 - [RemoteControl] Controller for node ABC123 disconnected.
+[INFO] 2025-08-07 20:18:04,852 relay_server.consumers:disconnect():75 - WebSocket disconnected for node ABC123 with code 1006.

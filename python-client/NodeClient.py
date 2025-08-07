@@ -11,31 +11,29 @@ import traceback
 import base64
 import time
 
-from commands import CommandDispatcher # Assuming commands.py is where CommandDispatcher is defined
+from commands import CommandDispatcher 
 
 logger = logging.getLogger('NodeClient')
 
 class NodeClient:
-
-    def connect_image_stream(self):
-        try:
-            image_url = f"{self.server_url_base}/ws/remote-control/image/{self.node_id}/"
-            headers = [f"Authorization: Bearer {self.access_token}"] if self.access_token else []
-            
-            self.image_ws = websocket.create_connection(image_url, header=headers)
-            logger.info(f"NodeClient: Connected to image stream WebSocket at {image_url}.")
-        except Exception as e:
-            logger.exception(f"NodeClient: Failed to connect to image stream WebSocket: {e}")
-            self.image_ws = None
-
-
     def send_image_frame(self, img_bytes):
+        """
+        Sends an image frame to the Relay Server via the main WebSocket connection.
+        The message is formatted for the relay to identify it as an image frame.
+        """
         try:
-            if self.image_ws:
-                self.image_ws.send(img_bytes, opcode=websocket.ABNF.OPCODE_BINARY)
-                logger.info(f"NodeClient: Sent image frame ({len(img_bytes)} bytes) to image stream.")
-            else:
-                logger.warning("NodeClient: Image WebSocket not connected. Cannot send image frame.")
+            encoded_frame = base64.b64encode(img_bytes).decode('utf-8')
+            
+            message = {
+                "type": "image_frame",
+                "frame_data": encoded_frame,
+                "node_id": self.node_id,
+                "timestamp": time.time()
+            }
+            
+            # Use the existing outgoing message queue to send the image frame
+            self.send_outgoing_ws_message(message)
+            logger.info(f"NodeClient: Queued image frame ({len(img_bytes)} bytes) for upload to Relay Server.")
         except Exception as e:
             logger.exception(f"NodeClient: Error sending image frame: {e}")
 
@@ -49,8 +47,6 @@ class NodeClient:
         self.ws = None
         self.running = False
         self.current_task_state = {}
-        self.image_ws = None  # Dedicated WebSocket for image streaming
-        # Ensure CommandDispatcher is initialized with a reference to this NodeClient
         self.dispatcher = CommandDispatcher(node_client_ref=self)
 
         self.command_queue = queue.Queue()
@@ -60,8 +56,6 @@ class NodeClient:
         self._ws_sender_thread = threading.Thread(target=self._websocket_sender, daemon=True)
 
         self._connected_event = threading.Event()
-
-        # Callback for handling invalid node ID (close code 4409)
         self.on_node_id_invalid = on_node_id_invalid
 
     def is_connected(self):
@@ -75,22 +69,16 @@ class NodeClient:
 
             if msg_type == 'command':
                 command_data = data.get('command')
-                # The requestId is now expected directly in the command_data payload
                 request_id = command_data.get('requestId')
                 if command_data:
                     logger.info(f"NodeClient: Received command (Req ID: {request_id}). Queuing for worker.")
-                    # Put the entire command_data dictionary into the queue
                     self.command_queue.put(command_data)
                 else:
                     logger.warning(f"NodeClient: Received 'command' type message without 'command' data: {message}")
             elif msg_type == 'node_status_check':
                 logger.info("NodeClient: Received node_status_check from server. Sending pong.")
-                # For status checks, we don't have an original requestId, so use a placeholder or generate new
-                # If the orchestrator doesn't poll for this, "N/A" is fine.
                 self._send_command_response("N/A", "PONG", {"message": "Client is alive."})
             elif msg_type == 'send_file_to_node':
-                # This block handles files sent *from* the Relay Server *to* the node.
-                # This is separate from the node *uploading* files to the server.
                 file_info = data.get('file', {})
                 request_id = file_info.get('requestId') or file_info.get('request_id')
                 filename = file_info.get('filename')
@@ -98,7 +86,6 @@ class NodeClient:
 
                 if not (request_id and filename and file_content_b64):
                     logger.error(f"NodeClient: Malformed 'send_file_to_node' message: {file_info}")
-                    # Use _send_command_response to send error back to relay
                     self._send_command_response(request_id, "error", error_message="Malformed file transfer message from server.")
                     return
 
@@ -109,7 +96,6 @@ class NodeClient:
                     with open(save_path, "wb") as f:
                         f.write(decoded_content)
                     logger.info(f"NodeClient: Successfully received and saved file '{filename}' to '{save_path}'.")
-                    # Send success response back to relay
                     self._send_command_response(request_id, "success", response_payload={
                         "message": f"File '{filename}' received and saved.",
                         "local_path": save_path,
@@ -146,12 +132,8 @@ class NodeClient:
         self._connected_event.set()
         self.running = True # Ensure running is True when connection opens
         self._start_threads() # Start worker threads after connection is open
-        # Connect to the image stream socket
-        self.connect_image_stream()
 
         initial_request_id = str(uuid.uuid4())
-        # Send initial node metadata message
-        # The 'type' is now 'node_metadata' and node_id is at the top level
         self.send_outgoing_ws_message({
             "type": "node_response",
             "response": {
@@ -182,9 +164,6 @@ class NodeClient:
                 request_id = command_data.get('requestId')
 
                 logger.info(f"NodeClient: Worker processing command: {command_type} (Req ID: {request_id})")
-
-                # Execute the command via the dispatcher and capture its result
-                # The dispatcher's execute_command method now returns a dictionary
                 result_from_dispatcher = self.dispatcher.execute_command(command_data)
 
                 # Send this result back to the Relay Server via _send_command_response
@@ -345,7 +324,6 @@ class NodeClient:
             logger.warning("NodeClient: No access token provided for WebSocket connection. Connection might fail due to lack of authentication.")
 
         websocket.enableTrace(False)
-        self.server_url_base = self.server_url.split("/ws/")[0]
         self.ws = websocket.WebSocketApp(
             self.server_url,
             header=headers,

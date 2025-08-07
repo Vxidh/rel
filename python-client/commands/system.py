@@ -65,38 +65,28 @@ class SystemCommands:
         request_id = params.get('requestId')
         log.info(f"[System] Capturing screenshot. RequestId: {request_id}")
         try:
-            screenshot_bytes = io.BytesIO()
-            pyautogui.screenshot().save(screenshot_bytes, format='PNG')
-            base64_image = base64.b64encode(screenshot_bytes.getvalue()).decode('utf-8')
-            
-            # The 'file_upload' message type is handled directly by the NodeConsumer on the Relay Server.
-            # This allows sending large binary data outside the standard command response.
-            file_upload_message = {
-                "type": "file_upload",
-                "file": {
-                    "request_id": request_id,
-                    "filename": f"screenshot_{uuid.uuid4().hex}.png",
-                    "file_content": base64_image, # This is 'file_content'
-                    "mime_type": "image/png",
-                    "uploaded_by_node_id": self.node_client.node_id if self.node_client else "unknown_node"
-                }
-            }
-            
-            if self.node_client and hasattr(self.node_client, 'outgoing_ws_queue'):
-                self.node_client.outgoing_ws_queue.put(file_upload_message)
-                log.info(f"[System] Screenshot captured and queued for upload. RequestId: {request_id}")
+            # Capture the screenshot into an in-memory bytes buffer
+            screenshot_buffer = io.BytesIO()
+            pyautogui.screenshot().save(screenshot_buffer, format='JPEG') # Use JPEG for better performance
+            image_bytes = screenshot_buffer.getvalue()
+
+            # Use the dedicated send_image_frame method from NodeClient.
+            # This ensures images are always encoded and sent the same way.
+            if self.node_client and hasattr(self.node_client, 'send_image_frame'):
+                self.node_client.send_image_frame(image_bytes)
+                log.info(f"[System] Screenshot captured and sent as image_frame. RequestId: {request_id}")
                 return {
                     "status": "success",
                     "action": "screenshot",
-                    "message": "Screenshot captured and queued for upload.",
+                    "message": "Screenshot captured and sent.",
                     "requestId": request_id
                 }
             else:
-                log.error(f"[System] Failed to queue screenshot for upload for Req ID: {request_id}: NodeClient or queue not ready.")
+                log.error(f"[System] Failed to send screenshot for Req ID: {request_id}: NodeClient or send_image_frame not available.")
                 return {
                     "status": "error",
                     "action": "screenshot",
-                    "message": "Failed to queue screenshot for upload: Client not ready.",
+                    "message": "Failed to send screenshot: Client not ready.",
                     "requestId": request_id
                 }
         except Exception as e:
@@ -585,4 +575,3 @@ class SystemCommands:
                 "traceback": traceback.format_exc(),
                 "requestId": request_id
             }
-

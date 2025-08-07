@@ -219,7 +219,7 @@
     </div>
 
     <script>
-        let imageSocket, commandSocket;
+        let socket;
         let canvas = document.getElementById('image-stream');
         let ctx = canvas.getContext('2d');
         let nodeId = '';
@@ -240,7 +240,7 @@
             e.preventDefault();
             nodeId = document.getElementById('node-id').value;
             token = document.getElementById('token').value;
-            connectSockets(nodeId, token);
+            connectSocket(nodeId, token);
         };
 
         qualitySelect.addEventListener('change', function(e) {
@@ -256,127 +256,58 @@
             connectionStatus.textContent = status.charAt(0).toUpperCase() + status.slice(1);
         }
 
-        function connectSockets(nodeId, token) {
+        function connectSocket(nodeId, token) {
             updateConnectionStatus('connecting');
             
-            // Image WebSocket
-            imageSocket = new WebSocket(`ws://${window.location.host}/ws/remote-control/image/${nodeId}/?token=${encodeURIComponent(token)}`);
-            imageSocket.binaryType = 'arraybuffer';
+            socket = new WebSocket(`ws://${window.location.host}/ws/remote-control/${nodeId}/?token=${encodeURIComponent(token)}`);
 
-            imageSocket.onopen = function() {
-                console.log("[Image WS] Connected");
+            socket.onopen = function() {
+                console.log("[WebSocket] Connected");
+                updateConnectionStatus('connected');
                 // Request initial screenshot
                 sendCommand('screenshot', {
                     quality: currentQuality
                 });
             };
 
-            imageSocket.onmessage = function(event) {
-                if (event.data instanceof ArrayBuffer) {
-                    console.log(`[Image WS] Received ${event.data.byteLength} bytes`);
-
-                    const blob = new Blob([event.data], { type: 'image/jpeg' });
-                    console.log(`[Image WS] Blob size: ${blob.size}`);
-
-                    const img = new Image();
-
-                    img.onload = function () {
-                        console.log(`[Image] Loaded image of size ${img.width}x${img.height}`);
-                        ctx.clearRect(0, 0, canvas.width, canvas.height);
-                        
-                        // Enhanced image drawing with better quality
-                        ctx.save();
-                        ctx.imageSmoothingEnabled = false;
-                        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-                        ctx.restore();
-                        
-                        // Clean up the blob URL
-                        setTimeout(() => URL.revokeObjectURL(img.src), 1000);
-                    };
-
-                    img.onerror = function (e) {
-                        console.error(`[Image] Failed to load image`, e);
-                        document.getElementById('status').innerText = 'Failed to render image frame.';
-                    };
-
-                    img.src = URL.createObjectURL(blob);
-                } else {
-                    try {
-                        let msg = JSON.parse(event.data);
-                        document.getElementById('status').innerText = msg.message || '';
-                    } catch (err) {
-                        console.warn("[Image WS] Non-JSON text message:", event.data);
-                    }
-                }
-            };
-
-            imageSocket.onclose = function() {
-                document.getElementById('status').innerText = 'Image stream disconnected.';
-                updateConnectionStatus('disconnected');
-            };
-
-            imageSocket.onerror = function(error) {
-                console.error("[Image WS] Error:", error);
-                updateConnectionStatus('disconnected');
-            };
-
-            // Command WebSocket
-            commandSocket = new WebSocket(`ws://${window.location.host}/ws/remote-control/command/${nodeId}/?token=${encodeURIComponent(token)}`);
-
-            commandSocket.onopen = function() {
-                console.log("[Command WS] Connected. Waiting for node readiness...");
-            };
-
-            commandSocket.onmessage = function(event) {
+            socket.onmessage = function(event) {
                 try {
                     let msg = JSON.parse(event.data);
-                    if (msg.type === "ready") {
-                        sendStartRemoteControl();
-                        updateConnectionStatus('connected');
+                    if (msg.type === 'image_frame') {
+                        const img = new Image();
+                        img.onload = function () {
+                            ctx.clearRect(0, 0, canvas.width, canvas.height);
+                            ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+                        };
+                        img.src = "data:image/jpeg;base64," + msg.frame_data;
+                    } else {
+                        document.getElementById('status').innerText = msg.message || '';
                     }
-                    document.getElementById('status').innerText = msg.message || '';
                 } catch (err) {
-                    console.error("[Command WS] Failed to parse message:", err);
+                    console.warn("[WebSocket] Non-JSON text message:", event.data);
                 }
             };
 
-            commandSocket.onclose = function() {
-                document.getElementById('status').innerText = 'Command channel disconnected.';
+            socket.onclose = function() {
+                document.getElementById('status').innerText = 'WebSocket disconnected.';
                 updateConnectionStatus('disconnected');
             };
 
-            commandSocket.onerror = function(error) {
-                console.error("[Command WS] Error:", error);
+            socket.onerror = function(error) {
+                console.error("[WebSocket] Error:", error);
                 updateConnectionStatus('disconnected');
             };
-        }
-
-        function sendStartRemoteControl() {
-            if (commandSocket && commandSocket.readyState === WebSocket.OPEN) {
-                let controllerId = 'frontend_' + Date.now();
-                let requestId = 'req_' + Date.now();
-                let cmd = {
-                    commandType: 'start_remote_control',
-                    requestId: requestId,
-                    params: {
-                        controllerId: controllerId,
-                        nodeId: nodeId
-                    }
-                };
-                commandSocket.send(JSON.stringify(cmd));
-                console.log("[Sent] start_remote_control", cmd);
-            }
         }
 
         function sendCommand(commandType, params) {
-            if (commandSocket && commandSocket.readyState === WebSocket.OPEN) {
+            if (socket && socket.readyState === WebSocket.OPEN) {
                 let requestId = 'req_' + Date.now();
                 let cmd = {
                     commandType: commandType,
                     requestId: requestId,
                     params: params || {}
                 };
-                commandSocket.send(JSON.stringify(cmd));
+                socket.send(JSON.stringify(cmd));
                 console.log(`[Sent] ${commandType}`, params);
             } else {
                 console.warn(`[Command] Cannot send ${commandType} - socket not ready`);
